@@ -1,0 +1,14 @@
+map()으로 만든 컴포너느에 key props추가하기
+
+웹콘솔에 이런 경고메세지가 떴다.
+---------------------------------------------------------------------------------------------------
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.
+    at Food (http://localhost:3000/static/js/main.chunk.js:24:3)
+    at App
+
+---> 리스트의 각 원소는 유일한 kry prop을 가져야 한다
+===> 데이터배열 각 요소에 식별자역할을 할 key값이 있어야 한다는 것. id속성을 추가해주면 된다.
+---------------------------------------------------------------------------------------------------
+

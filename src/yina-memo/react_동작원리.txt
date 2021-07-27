@@ -1,0 +1,27 @@
+리액트 동작원리
+
+리액트는 코드를 자바스크립트를 이용하여 해석한다
+App.js 에서 작성한 내용이
+index.js에서 ReactDOM.render(document.getElementById('root')); 안에서 지정하는 DOM요소인
+index.html 에있는 <div id="root"></div> 안에 들어가는 것
+
+=> 그래서 index.html에 root안에 없던 내용이 react앱을 실행시키면 생기는 것
+
+여기서 리액트는
+index.html의 DOM요소 안에 넣을 결과물을
+프로젝트 폴더(/src)에 있는 파일을 해석하고 만들어서 넣는 역할을 하는 것
+--------------------------------------------------------------------
+index.js에서 렌더링하는 부분 뜯어보기
+
+ReactDOM.render(<App />,
+    document.getElementById('root')
+);
+
+<App />                         ===> 이 컴포넌트를
+document.getElementById('root') ===> 여기 지정한 DOM요소에
+ReactDOM.render                 ===> React가 그린다
+--------------------------------------------------------------------
+
+그래서 만약
+index.js에서 지정한 DOM요소 선택자 != index.html에 있는 id가 안맞으면
+Error: Target contaier is not a DOM element.

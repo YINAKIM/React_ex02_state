@@ -1,0 +1,15 @@
+
+public 폴더는 사용하지 않음
+index.html, 딱히 사용안한다고 함
+그리고 public폴더에 있는 나머지 파일들도 신경쓰지 않아도 된다고 함
+
+
+src폴더에 있는 파일들이 react앱 실행에 사용되는 파일들
+App.js
+index.js
+package.json
+그리고
+.gitignore
+READMO.md
+있으면 됨
+

@@ -1,0 +1,46 @@
+만약 정의한 props의 값이 {dish.image}가 아닌 {true}를 전달한다면, 원하는대로 작동하지 않는다.
+이런 경우 props를 검사하는 방법이 필요한데, 그 도구가 props-types다.
+
+1. npm으로  props-types 설치하기
+npm install prop-types
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ✘ kim-yina@gim-inaui-MacBookPro  ~/Desktop/yinaLab/React_ex/react_ex01_movie   master ±✚  npm install prop-types
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.14.5 requires a peer of @babel/core@^7.13.0 but none is installed. You must install peer dependencies yourself.
+npm WARN tsutils@3.21.0 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
+
++ prop-types@15.7.2
+updated 1 package and audited 1932 packages in 8.14s
+
+145 packages are looking for funding
+  run `npm fund` for details
+
+found 3 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. prop-types가 하는 일
+컴포넌트가 전달받은 props가 정말 내가 원하는 값인지 확인해준다.
+prop name, 데이터타입, 필수여부 등을 지정해서 검사하는 것 --> 검사fail? 에러는 안나고 실행은 되지만 값이 제대로 표출되지 않고, 콘솔에서 Warning으로 알려준다.
+
+
+* 설치 확인하기
+package.json파일에서 prop-types 를 확인해보면 dependencies 키값에
+
+{
+  "name": "react_ex01_movie",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "prop-types": "^15.7.2", ------------------------> 이렇게 알아서 입력되어있다면 props-types설치 잘 된 것
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+
