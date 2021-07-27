@@ -1,26 +1,64 @@
 import React from 'react';
 /******************************************************************************
-
-클래스형 컴포넌트 만들기1. 리액트가 제공하는 Component클래스를 반드시 상속
-클래스형 컴포넌트 만들기2. render()함수로 JSX를 반환 ( -> 함수형 컴포넌트와 클래스형컴포넌트의 차이점)
-
-클래스형 컴포넌트는 왜쓰지? state를 사용하기 위해서
-********************************************************************************/
+ state를 사용하는 이유?
+ ---> 사용자의 동작에 따라 동적으로 데이터를 바꿀 수 있도록 하기 위함
+ ********************************************************************************/
 
 
 
 class App extends React.Component{
-    // [1] 상속으로 React.Component의 기능을 추가한 App 컴포넌트
 
-    // [3] state 사용(클래스형 컴포넌트로 만드는 목적)
+    // state로 동적 데이터 받아서 사용하기
     state = {
-        count : 10,
+        count : 0,
     };
 
-    // [2] render()함수로 JSX를 반환
+// state 키값에 초기값에서 Add버튼을 누르면 +, Minus버튼을 누르면 - 시키는 함수
+    add = () => {
+        console.log('add');
+
+        //숫자증감시키기 시도 1 : 리액트는 state를 직접 변경하는 코드를 허용하지 않는다
+        //this.state.count = 1; // WARNING:   Do not mutate state directly. Use setState()  react/no-direct-mutation-state
+
+        //숫자증감시키기 시도 2 : Use setState() 함수를 사용해서 간접적으로 변경시키기 - warning없이 가능한지만 확인
+        // this.setState({count:1});
+
+        //숫자증감시키기 시도 3
+        //this.setState({count:this.state.count+1});
+
+        //숫자증감시키기 시도 4 :  성능문제없이 state 업데이트시키기 ---> setState()함수의 인자로 함수를 전달
+        this.setState(current => ({
+            count:current.count+1,
+        }));
+    }
+
+    minus = () => {
+        console.log('minus');
+        //숫자증감시키기 시도 1 : 리액트는 state를 직접 변경하는 코드를 허용하지 않는다
+        //this.state.count = -1; // WARNING:   Do not mutate state directly. Use setState()  react/no-direct-mutation-state
+
+        //숫자증감시키기 시도 2 : Use setState() 함수를 사용해서 간접적으로 변경시키기 - warning없이 가능한지만 확인
+        //this.setState({count:-1});
+
+        //숫자증감시키기 시도 3 :  성공! ---> But 직접호출하는 것은 성능문제 있을 수 있음
+        //this.setState({count:this.state.count-1});
+
+        //숫자증감시키기 시도 4 :  성능문제없이 state 업데이트시키기 ---> setState()함수의 인자로 함수를 전달
+        this.setState(current => ({
+            count:current.count-1,
+        }));
+    }
+
     render() {
-        return <h1>the Number is : {this.state.count} </h1>;
+        return (
+            <div>
+                <h1>the Number is : {this.state.count} </h1>
+                <button onClick={this.add}>Add</button>
+                <button onClick={this.minus}>Minus</button>
+            </div>
+        );
     }
 }
+
 
 export default App;
