@@ -59,6 +59,47 @@ setState()의 인자로 state를 전달하면? state가 완전히 새로운 stat
 ---
 
 
+### 생명주기 함수 : 클래스형 컴포넌트의 일생 알아보기
+constructor() componentDidMount(), componentDidUpdate(), componentWillUnmount()   
+
+
+
+###### constructor() : 클래스형 컴포넌트가 생성될 때 호출된다.   
+render()함수보다 먼저 실행되는 함수, 클래스형 컴포넌트가 생성될 때 호출된다. (생멍주기함수는 아니지만)   
+
+
+
+###### componentDidMount()       
+render() 다음순서로 실행됨, 기본상태로는 render 실행마다는 아니고 초기 로딩 시 render함수 뒤에 1번 실행됨   
+
+
+
+###### componentDidUpdate()      
+초기 로딩시 실행 안되고, state가 Update될 때 마다 render()함수 다음에 실행됨   
+
+
+
+###### componentWillUnmount()       
+리액트에서 컴포넌트가 죽을 때 Unmount로 분류한다. 보통 컴포넌트에 적용한 이벤트 리스너를 제거할 때 만이 사용한다.      
+
+
+
+--- 
+
+### 컴포넌트 생명주기 정리   
+1. 컴포넌트의 생명주기에 기본적으로 실행되는 함수는 실행순서대로       
+   constructor() - render() - componentDidMount()       
+   
+    
+2. 컴포넌트의 state가 업데이트될 때 마다 실행되는 함수는       
+   render() - componentDidUpdate()       
+
+
+3. 컴포넌트가 죽을 때 맨 마지막에 실행되는 함수는       
+   componentWillUnmount() : 보통 컴포넌트에 적용한 이벤트 리스너를 제거할 때 만이 사용      
+
+
+
 
 
    
